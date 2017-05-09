@@ -336,6 +336,7 @@ Connect All things with xml
 
 
 #Step 5:
+
 Implementation
 now we just need this:
 1. binding dividers is type of divider you want
