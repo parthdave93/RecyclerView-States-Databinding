@@ -122,7 +122,7 @@ So
 ```
 <br/>
 
-#Step 2:
+# Step 2:
 
 <br/>
 Common bindings of listeners
@@ -141,7 +141,7 @@ public interface OnLoadMoreListener {
 
 <br/>
 
-#Step 3:
+# Step 3:
 
 <br/>
 Binding providers and states
@@ -234,7 +234,7 @@ public abstract class ListBindingProviders<T> {
 ```
 <br/>
 
-#Step 4:
+# Step 4:
 
 <br/>
 Connect All things with xml
@@ -349,7 +349,7 @@ Connect All things with xml
 
 <br/>
 
-#Step 5:
+# Step 5:
 
 <br/>
 Implementation
