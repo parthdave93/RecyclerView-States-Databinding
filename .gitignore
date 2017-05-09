@@ -6,6 +6,6 @@
 .DS_Store
 /build
 /captures
-/recyclerviewbindinglibrary/build
 /app/build
+/recyclerviewbindinglibrary/build
 .externalNativeBuild
