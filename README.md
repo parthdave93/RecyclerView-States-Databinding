@@ -30,7 +30,11 @@ Things we need
 4. Connect All things
 5. Implement 
 
+<br/>
+
 # Step 1:
+
+<br/>
 Common Recyclerview layout which will have no internet image, one message to show messages, recyclerview itself
 
 So 
@@ -116,8 +120,11 @@ So
     </FrameLayout>
     
 ```
+<br/>
 
 #Step 2:
+
+<br/>
 Common bindings of listeners
 
 ```
@@ -132,7 +139,11 @@ public interface OnLoadMoreListener {
 }
 ```
 
+<br/>
+
 #Step 3:
+
+<br/>
 Binding providers and states
 
 There will be below possibility of recyclerview 
@@ -221,8 +232,11 @@ public abstract class ListBindingProviders<T> {
     }  
 }
 ```
+<br/>
 
 #Step 4:
+
+<br/>
 Connect All things with xml
 
 
@@ -333,10 +347,11 @@ Connect All things with xml
 </layout>
 ````
 
-
+<br/>
 
 #Step 5:
 
+<br/>
 Implementation
 now we just need this:
 1. binding dividers is type of divider you want
