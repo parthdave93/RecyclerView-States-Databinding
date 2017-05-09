@@ -1,10 +1,7 @@
 # RecyclerView-States-Databinding
 RecyclerView States &amp; Databinding
 
-<img src="/captures/no_internet.png" height="60%"/>
-<img src="/captures/loading_state.png" height="60%"/>
-<img src="/captures/loaded_state.png" height="60%"/>
-<img src="/captures/loadmore.png" height="60%"/>
+<img src="/captures/functionality.gif"/>
 
 
 Databinding provides an easier way to manage application with less code. let's start by network states and recyclerview items.
