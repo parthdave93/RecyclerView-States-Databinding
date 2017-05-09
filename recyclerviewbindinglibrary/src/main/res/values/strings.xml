@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">RecyclerViewBindingLibrary</string>
+    <string name="try_again">Try Again</string>
+
+    <string name="rv_margin">margin</string>
+    <string name="rv_bottomMargin">bottomMargin</string>
+    <string name="rv_bottomDivider">bottomDivider</string>
+</resources>

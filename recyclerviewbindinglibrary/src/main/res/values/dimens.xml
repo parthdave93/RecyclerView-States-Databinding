@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="_60sdp">60dp</dimen>
+    <dimen name="_5sdp">5dp</dimen>
+    <dimen name="_15sdp">15dp</dimen>
+    <dimen name="circular_btn_radius">10dp</dimen>
+    <dimen name="selector_btn_green_btn_radius">10dp</dimen>
+</resources>

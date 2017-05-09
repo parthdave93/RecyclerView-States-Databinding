@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <import type="com.parthdave.recyclerviewbindinglibrary.bindings.ListBindingProviders"/>
+
+        <import type="android.support.v4.widget.SwipeRefreshLayout.OnRefreshListener"/>
+
+        <import type="me.tatarka.bindingcollectionadapter2.LayoutManagers.LayoutManagerFactory"/>
+
+        <import type="com.parthdave.recyclerviewbindinglibrary.states.RecyclerviewErrorStateType"/>
+        <import type="com.parthdave.recyclerviewbindinglibrary.listeners.NetworkTryAgainListener"/>
+        <import type="com.parthdave.recyclerviewbindinglibrary.listeners.OnLoadMoreListener"/>
+
+
+        <variable
+            name="provider"
+            type="ListBindingProviders"/>
+
+        <variable
+            name="networkListener"
+            type="NetworkTryAgainListener"/>
+
+        <variable
+            name="bindingDivider"
+            type="String"/>
+
+        <variable
+            name="layoutManager"
+            type="LayoutManagerFactory"/>
+
+        <variable
+            name="onRefreshListener"
+            type="OnRefreshListener"/>
+
+
+        <variable
+            name="onLoadMoreListener"
+            type="OnLoadMoreListener"/>
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#F7F7F7">
+
+
+        <LinearLayout
+            android:id="@+id/llNoInternetConnection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:visibility="@{provider.recyclerViewState==RecyclerviewErrorStateType.NetworkError?View.VISIBLE:View.GONE}">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/no_internet_connection"/>
+
+            <TextView
+                style="@style/Button.selector_btn_green"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/try_again"
+                android:clickable="true"
+                android:layout_margin="@dimen/_15sdp"
+                android:layout_gravity="center_horizontal"
+                android:onClick="@{(v)->networkListener.onTryAgainClick()}"/>
+
+            <TextView
+                android:id="@+id/tvMessageText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@{provider.message}"/>
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progressbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="@{provider.recyclerViewState==RecyclerviewErrorStateType.LoadingStarted?View.VISIBLE:View.GONE}"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="@{(provider.recyclerViewState==RecyclerviewErrorStateType.Loaded || provider.recyclerViewState==RecyclerviewErrorStateType.LoadMore)?View.VISIBLE:View.GONE}">
+
+            <android.support.v4.widget.SwipeRefreshLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                bind:enabled="@{provider.isSwipeRefreshEnabled}"
+                bind:onRefreshListener="@{onRefreshListener}"
+                bind:refreshingState="@{provider.swipeRefreshStates}">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rvList"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    android:paddingBottom="@dimen/_60sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    app:itemBinding="@{provider.itemBinding}"
+                    app:items="@{provider.items}"
+                    app:layoutManager="@{layoutManager}"
+                    bind:dividers="@{bindingDivider}"
+                    bind:loadMoreEnabled="@{provider.loadMoreEnabled}"
+                    bind:onLoadMoreListener="@{onLoadMoreListener}">
+
+                </android.support.v7.widget.RecyclerView>
+
+            </android.support.v4.widget.SwipeRefreshLayout>
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/loadMoreProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:visibility="@{provider.recyclerViewState==RecyclerviewErrorStateType.LoadMore?View.VISIBLE:View.GONE}"/>
+
+    </FrameLayout>
+</layout>

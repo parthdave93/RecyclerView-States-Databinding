@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="me.tatarka.bindingcollectionadapter2.LayoutManagers"/>
+
+        <import type="com.parthdave.databindingandrecyclerview.bindings.ListBindings.UserListingBinding"/>
+
+        <import type="android.support.v4.widget.SwipeRefreshLayout.OnRefreshListener"/>
+
+        <import type="me.tatarka.bindingcollectionadapter2.LayoutManagers.LayoutManagerFactory"/>
+
+        <import type="com.parthdave.recyclerviewbindinglibrary.listeners.NetworkTryAgainListener"/>
+        <import type="com.parthdave.recyclerviewbindinglibrary.listeners.OnLoadMoreListener"/>
+
+        <variable
+            name="listingProvider"
+            type="UserListingBinding"/>
+
+        <variable
+            name="onRefreshListener"
+            type="OnRefreshListener"/>
+        <variable
+            name="networkListener"
+            type="NetworkTryAgainListener"/>
+
+
+        <variable
+            name="onLoadMoreListener"
+            type="OnLoadMoreListener"/>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.parthdave.databindingandrecyclerview.ui.MainActivity">
+
+        <include
+            layout="@layout/common_recyclerview_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:provider="@{listingProvider}"
+            app:bindingDivider="@{@string/rv_bottomDivider}"
+            app:layoutManager="@{LayoutManagers.linear()}"
+            app:onRefreshListener="@{onRefreshListener}"
+            app:networkListener="@{networkListener}"
+            app:onLoadMoreListener="@{onLoadMoreListener}"/>
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,41 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.3.1'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+
+ext{
+    // QuickBlox SDK version
+    compileSdkVersion = 25
+    buildToolsVersion = "25.0.2"
+    SupportLibrary = '25.1.0'
+    minSdkVersion = 18
+    targetSdkVersion = 25
+
+    sourceCompatibility = JavaVersion.VERSION_1_7
+    targetCompatibility = JavaVersion.VERSION_1_7
+
+    lintAbortOnError = false
+
+    designVersion = '25.1.0'
+    stickyListHeaders = '2.7.0'
+}
